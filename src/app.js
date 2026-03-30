@@ -7,22 +7,15 @@ const app = express();
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "*",
-  }),
+    origin: process.env.CLIENT_URL || "*"
+  })
 );
 app.use(express.json());
 
 // Deployment Test Route
 app.get("/", (req, res) => {
-  res.json({
-    message:
-      "Server is running successfully on Render and connected to MongoDB Atlas!",
-  });
-});
-
-app.get("/debug", (req, res) => {
-  res.send("Debug route works");
-});
+  res.send("Server is running successfully on Render and connected to MongoDB Atlas!")
+})
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
