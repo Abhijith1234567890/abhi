@@ -1,0 +1,89 @@
+{
+  "info": {
+    "name": "Books API",
+    "_postman_id": "7e7c8cc2-88a0-4d0a-b7b0-7345c243687c",
+    "description": "CRUD operations for Books API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Books",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/books?page=1&limit=5",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "books"],
+          "query": [
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "5" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Book",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Atomic Habits\",\n  \"author\": \"James Clear\",\n  \"publishedDate\": \"2018-10-16\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/books",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "books"]
+        }
+      }
+    },
+    {
+      "name": "Get Book By Id",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/books/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "books", ":id"]
+        }
+      }
+    },
+    {
+      "name": "Update Book",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Atomic Habits Updated\",\n  \"author\": \"James Clear\",\n  \"publishedDate\": \"2018-10-16\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/books/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "books", ":id"]
+        }
+      }
+    },
+    {
+      "name": "Delete Book",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}/api/books/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "books", ":id"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    }
+  ]
+}
