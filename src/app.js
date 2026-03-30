@@ -5,17 +5,15 @@ const { notFoundHandler, errorHandler } = require("./middleware/errorHandlers");
 
 const app = express();
 
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL || "*"
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 // Deployment Test Route
 app.get("/", (req, res) => {
-  res.send("Server is running successfully on Render and connected to MongoDB Atlas!")
-})
+  res.send(
+    "Server is running successfully on Render and connected to MongoDB Atlas!",
+  );
+});
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
