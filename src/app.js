@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Deployment Test Route
 app.get("/", (req, res) => {
-  res.send("Server is running successfully on Render and connected to MongoDB Atlas!")
+  res.json("Server is running successfully on Render and connected to MongoDB Atlas!")
 })
 
 app.get("/api/health", (req, res) => {
