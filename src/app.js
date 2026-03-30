@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/debug", (req, res) => {
+  res.send("Debug route works");
+});
+
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
 });
